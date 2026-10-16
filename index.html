@@ -21,7 +21,7 @@ body{margin:0}
 <div style="position: relative; width: 1280px; height: 860px; display: flex; flex-direction: column; overflow: hidden; background: #EDEDEA; font-family: 'Montserrat', sans-serif; color: #111111">
 <div style="height: 56px; flex-shrink: 0; box-sizing: border-box; padding: 0 20px; display: flex; align-items: center; gap: 16px; background: #111111; color: #FFFFFF">
 <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 3px">
-<div style="font-size: 13px; font-weight: 700">Desktop · Detail Artikel Video · 29 slot · tanpa batas iklan di layar</div>
+<div style="font-size: 13px; font-weight: 700">Desktop · Detail Artikel Video · 28 slot · tanpa batas iklan di layar</div>
 <div style="display: flex; gap: 14px; font-size: 10px; font-weight: 600; color: #D4D4CF">
 <span style="display: flex; align-items: center; gap: 3px"><span style="width: 8px; height: 8px; background: #2F5DA8"></span>Display / frame</span>
 <span style="display: flex; align-items: center; gap: 3px"><span style="width: 8px; height: 8px; background: #B42318"></span>In Article</span>
@@ -69,7 +69,7 @@ body{margin:0}
 <div style="display: flex; gap: 30px; padding: 0 0 0 15px">
 <div style="width: 655px; display: flex; flex-direction: column">
 <div style="height: 44px; display: flex; align-items: center; gap: 10px; padding: 0 12px; border: 1px solid #E5E5E0; border-radius: 8px; font-size: 11px; font-weight: 600; color: #6E6A62; opacity: {{o}}">Floating interaction bar</div>
-<div style="padding: 10px 0"><div data-ad="TDA" data-prio="50" style="width: 655px; height: 90px; box-sizing: border-box; border: 2px dashed #2F5DA8; background: #E3ECFA; color: #1E3A6E; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; text-align: center"><div style="font-size: 13px; font-weight: 700">Top Detail Ads</div><div style="font-size: 11px; font-weight: 500">ukuran belum disebut di sheet</div></div></div>
+<div style="height: 10px"></div>
 <div style="display: flex; gap: 15px">
 <div style="width: 655px; flex-shrink: 0">
 <sc-for list="{{art}}" as="r" hint-placeholder-count="40">
@@ -147,6 +147,13 @@ body{margin:0}
 </sc-if>
 <sc-if value="{{r.isCB}}" hint-placeholder-val="{{false}}">
 <div style="margin-top: 12px; padding: 10px 14px; border-top: 3px solid #D9B977; background: #F7F6F3; font-size: 16px; font-weight: 700; opacity: {{r.o}}">{{r.label}}</div>
+</sc-if>
+<sc-if value="{{r.isBox}}" hint-placeholder-val="{{false}}">
+<div style="margin: 12px 30px 4px 0; border: 2px solid #D9B977; border-radius: 10px; background: #F7F6F3; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; opacity: {{r.o}}">
+<div style="font-size: 15px; font-weight: 700">{{r.label}}</div>
+<div style="height: 8px; width: 90%; background: #D4D4CF; border-radius: 4px"></div>
+<div style="height: 8px; width: 64%; background: #D4D4CF; border-radius: 4px"></div>
+</div>
 </sc-if>
 <sc-if value="{{r.isGrid}}" hint-placeholder-val="{{false}}">
 <div style="display: grid; grid-template-columns: {{r.cols}}; gap: 12px; padding: 8px 30px 8px 0">
@@ -292,16 +299,16 @@ class Component extends DCLogic {
     const o = st.adsOnly ? 0.2 : 1;
     const P = 'D';
     const ART = [["meta", "Breadcrumb"], ["title"], ["meta", "Author"], ["meta", "Timestamp"], ["btn", "Interaksi Button"], ["video"], ["para", "Isi"], ["btn", "Interaksi Button"]];
-    const BOT = [["ad", "Exploration Ad 1", 320, 100, "320x100", "Setelah artikel, sebelum CB", "exp"], ["cb", "CB detikEvent"], ["ad", "Exploration Ad 2", 320, 100, "320x100", "Setelah artikel, sebelum CB", "exp"], ["cb", "CB Berita Terkait"], ["grid", 2, "Berita Terkait 1", "AD:Native Ads"], ["grid", 2, "Berita Terkait 2", "Berita Terkait 4"], ["grid", 2, "Berita Terkait 5", "Berita Terkait 6"], ["grid", 2, "Berita Terkait 7", "Berita Terkait 8"], ["ad", "Exploration Ad 3", 320, 100, "320x100", "Setelah artikel, sebelum CB", "exp"], ["cb", "CB Artikel Rekomendasi"], ["grid", 2, "Rekomendasi 1", "AD:Native Adsmart 3"], ["grid", 2, "Rekomendasi 3", "Rekomendasi 4"], ["grid", 2, "Rekomendasi 5", "Rekomendasi 6"], ["grid", 2, "Rekomendasi 7", "Rekomendasi 8"], ["ad", "Exploration Ad 4", 320, 100, "320x100", "Setelah artikel, sebelum CB", "exp"], ["cb", "CB Berita detikcom Lainnya"], ["grid", 4, "BDL 1", "BDL 2", "AD:Native Ads ke 3", "BDL 4"], ["grid", 4, "BDL 5", "AD:Native Ads ke 6", "BDL 7", "BDL 8"], ["ad", "Exploration Ad 5", 320, 100, "320x100", "Setelah artikel, sebelum CB", "exp"], ["komhead", "Komentar"], ["kom", "Komentar 1"], ["kom", "Komentar 2"], ["natkom", "Native Komentar"], ["kom", "Komentar 3"], ["kom", "Komentar 4"], ["kom", "Komentar 5"], ["kom", "Komentar 6"], ["kom", "Komentar 7"], ["natkom", "Native Komentar"], ["kom", "Komentar 8"], ["kom", "Komentar 9"], ["kom", "Komentar 10"], ["paging", "Paging"]];
+    const BOT = [["box", "Newstag"], ["box", "Hidden Quiz"], ["ad", "Exploration Ad 1", 320, 100, "320x100", "Setelah artikel, sebelum CB", "exp"], ["cb", "CB detikEvent"], ["ad", "Exploration Ad 2", 320, 100, "320x100", "Setelah artikel, sebelum CB", "exp"], ["cb", "CB Berita Terkait"], ["grid", 2, "Berita Terkait 1", "AD:Native Ads"], ["grid", 2, "Berita Terkait 2", "Berita Terkait 4"], ["grid", 2, "Berita Terkait 5", "Berita Terkait 6"], ["grid", 2, "Berita Terkait 7", "Berita Terkait 8"], ["ad", "Exploration Ad 3", 320, 100, "320x100", "Setelah artikel, sebelum CB", "exp"], ["cb", "CB Artikel Rekomendasi"], ["grid", 2, "Rekomendasi 1", "AD:Native Adsmart 3"], ["grid", 2, "Rekomendasi 3", "Rekomendasi 4"], ["grid", 2, "Rekomendasi 5", "Rekomendasi 6"], ["grid", 2, "Rekomendasi 7", "Rekomendasi 8"], ["ad", "Exploration Ad 4", 320, 100, "320x100", "Setelah artikel, sebelum CB", "exp"], ["cb", "CB Berita detikcom Lainnya"], ["grid", 4, "BDL 1", "BDL 2", "AD:Native Ads ke 3", "BDL 4"], ["grid", 4, "BDL 5", "AD:Native Ads ke 6", "BDL 7", "BDL 8"], ["ad", "Exploration Ad 5", 320, 100, "320x100", "Setelah artikel, sebelum CB", "exp"], ["komhead", "Komentar"], ["kom", "Komentar 1"], ["kom", "Komentar 2"], ["natkom", "Native Komentar"], ["kom", "Komentar 3"], ["kom", "Komentar 4"], ["kom", "Komentar 5"], ["kom", "Komentar 6"], ["kom", "Komentar 7"], ["natkom", "Native Komentar"], ["kom", "Komentar 8"], ["kom", "Komentar 9"], ["kom", "Komentar 10"], ["paging", "Paging"]];
     const C = {
       fixed: { bd: '#2F5DA8', bg: '#E3ECFA', fg: '#1E3A6E' },
       ia: { bd: '#B42318', bg: '#FDE8E6', fg: '#7A1A12' },
       exp: { bd: '#0F766E', bg: '#DDF3EF', fg: '#0B4F49' }
     };
-    const FLAGS = ['isAd', 'isNat', 'isPair', 'isCB', 'isApps', 'isHeader', 'isNav', 'isNav2', 'isTitle', 'isMeta', 'isImg', 'isPara', 'isFoto', 'isVideo', 'isBtn', 'isPage', 'isFooter', 'isGrid', 'isKomHead', 'isKom', 'isNatKom', 'isPaging', 'isGallery'];
+    const FLAGS = ['isAd', 'isNat', 'isPair', 'isCB', 'isApps', 'isHeader', 'isNav', 'isNav2', 'isTitle', 'isMeta', 'isImg', 'isPara', 'isFoto', 'isVideo', 'isBtn', 'isPage', 'isFooter', 'isGrid', 'isKomHead', 'isKom', 'isNatKom', 'isPaging', 'isGallery', 'isBox'];
     const base = { o: o };
     FLAGS.forEach((f) => { base[f] = false; });
-    const fl = { ad: 'isAd', nat: 'isNat', pair: 'isPair', cb: 'isCB', apps: 'isApps', header: 'isHeader', nav: 'isNav', nav2: 'isNav2', title: 'isTitle', meta: 'isMeta', img: 'isImg', para: 'isPara', foto: 'isFoto', video: 'isVideo', btn: 'isBtn', page: 'isPage', footer: 'isFooter', grid: 'isGrid', komhead: 'isKomHead', kom: 'isKom', natkom: 'isNatKom', paging: 'isPaging', gallery: 'isGallery' };
+    const fl = { ad: 'isAd', nat: 'isNat', pair: 'isPair', cb: 'isCB', apps: 'isApps', header: 'isHeader', nav: 'isNav', nav2: 'isNav2', title: 'isTitle', meta: 'isMeta', img: 'isImg', para: 'isPara', foto: 'isFoto', video: 'isVideo', btn: 'isBtn', page: 'isPage', footer: 'isFooter', grid: 'isGrid', komhead: 'isKomHead', kom: 'isKom', natkom: 'isNatKom', paging: 'isPaging', gallery: 'isGallery', box: 'isBox' };
     let natN = 0;
     const cell = (t) => t.indexOf('AD:') === 0 ? { ad: true, news: false, id: P + 'N' + (++natN), label: t.slice(3), o: o } : { ad: false, news: true, label: t, o: o };
     const build = (spec, start) => {
